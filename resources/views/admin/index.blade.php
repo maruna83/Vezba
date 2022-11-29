@@ -32,8 +32,9 @@
           Stranice
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdown1">
+            <li><a class="dropdown-item" href="{{asset('/admin/about')}}">O nama</a></li>
             <li><a class="dropdown-item" href="/admin/about">O nama</a></li>
-            <li><a class="dropdown-item" href="/admin/kontakt">Kontakt</a></li>
+            <li><a class="dropdown-item" href="/admin/kontakt">Kontaktaaaa</a></li>
           </ul>
         </li>
       </ul>
@@ -57,8 +58,10 @@
     </div>
   </div>
 </nav>
+
 <br><br>
   <div class="nav justify-content-center">
+  <h1>PROBAAAAA</h1>
   <h2>Dobro dosli</h2>
   </div>
 <!-- JavaScript Bundle with Popper -->
