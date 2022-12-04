@@ -9,6 +9,8 @@ class rooms extends Model
 {
     use HasFactory;
 
-    protected $table='prostorije';
+    protected $table ='prostorije';
+
+    protected $primaryKey = 'id';
 
 }

@@ -31,6 +31,10 @@ Route::get('/updateAbout','App\Http\Controllers\AboutController@updateAbout');
 Route::get('admin/contact','App\Http\Controllers\contactController@contact');
 Route::post('admin/editContact','App\Http\Controllers\contactController@editContact');
 
-Route::get('admin/rooms','App\Http\Controllers\roomController@rooms');
+Route::get('admin/rooms','App\Http\Controllers\roomController@viewAllRooms');
+Route::get('admin/insertRooms','App\Http\Controllers\roomController@viewInsertPage');
+Route::post('admin/saveRooms','App\Http\Controllers\roomController@insertRooms');
+Route::get('/editRoom/id/{id}','App\Http\Controllers\roomController@editRoom');
+Route::get('/deleteRoom/id/{id}','App\Http\Controllers\roomController@deleteRoom');
 
 Route::get('admin/category','App\Http\Controllers\categoryController@category');
