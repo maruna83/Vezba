@@ -70,7 +70,7 @@
                                                 <span class="fas fa-edit" style="font-size: 22px;" aria-hidden="true"></span></a>
                                         </div>
                                         <div class="d-inline p-2">
-                                            <a href="/admin/deleteRoom/id/{{$room->id}}" class="nav-link text-center card-link" }>
+                                            <a href="admin/deleteRoom/id/{{$room->id}}" class="nav-link text-center card-link" }>
                                                 <span class="fas fa-trash" style="font-size: 22px;" aria-hidden="true"></span></a>
                                         </div>
                                     </div>
@@ -85,6 +85,7 @@
         </div>
     </div>
 </div>
+
 
 @endsection
 ​

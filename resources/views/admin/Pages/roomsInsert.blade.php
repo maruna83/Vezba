@@ -46,7 +46,15 @@
                             <div class="col-6">
                                 <div class="input-group-desc">
                                     <input class="form-control" type="text" name="naziv" placeholder="Naziv" value="{{ old('naziv')}}">
-                                    <label class="label--desc">Naziv <span class="text-danger">* </span> <span class="text-danger"></span></label>
+                                    <label class="label--desc">Naziv <span class="text-danger">* </span> <span class="text-danger">
+                                            @if($errors->any())
+                                            @foreach($errors->all() as $error)
+                                            
+                                                {{$error}}
+                                           
+                                            @endforeach
+                                            @endif
+                                        </span></label>
                                 </div>
                             </div>
                         </div>

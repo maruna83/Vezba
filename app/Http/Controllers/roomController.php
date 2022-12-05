@@ -53,28 +53,28 @@ class roomController extends Controller
   {
     $room = rooms::findOrFail($id);
     
-    return view('/admin/Pages/roomsEdit',['room'=>$room]);
+    return view('admin/Pages/roomsEdit',['room'=>$room]);
   }
   
   public function editRoom($id, Request $request)
   {
  
       $messages=[
-        'required'=>'Morate popuniti polje :attribute',
+        'required'=>'Obavezno polje',
       ];
-      
+      $room = rooms::findOrFail($id);
       $validator = Validator::make(
       $request->all(),
       [
-      'naziv'=>'required',
+      'NAZIV'=>'required',
             
       ],$messages);
       
       if($validator->fails()){
-      return redirect('/admin/Pages/roomsEdit')->withErrors($validator)
+      return redirect('/admin/previewRoom/id/'.$room->id)->withErrors($validator)
                                    ->withInput();
       }
-      $room = rooms::findOrFail($id);
+      
        
       $room->naziv = $request->input('naziv');
       $room->opis = $request->input('opis');

@@ -25,16 +25,7 @@
     <div class="card-header">
         <h3>Prostorije </h3>
     </div>
-    @if($errors->any())
-@foreach($errors->all() as $error)
-<div class="alert alert-danger">
-{{$error}}
 
-</div>
-
-@endforeach
-
-@endif
     <div class="card-body">
         <form action="/admin/editRoom/id/{{ $room->id }}" method="post">
             @csrf
@@ -46,7 +37,15 @@
                             <div class="col-6">
                                 <div class="input-group-desc">
                                     <input class="form-control text-center" type="text" name="naziv" placeholder="Naziv" value="{{ $room->naziv }}">
-                                    <label class="label--desc">Naziv <span class="text-danger">* </span> <span class="text-danger"></span></label>
+                                    <label class="label--desc">Naziv <span class="text-danger">* </span> <span class="text-danger">
+                                            @if($errors->any())
+                                            @foreach($errors->all() as $error)
+                                            
+                                                {{$error}}
+                                           
+                                            @endforeach
+                                            @endif
+                                        </span></label>
                                 </div>
                             </div>
                         </div>
@@ -54,17 +53,17 @@
                 </div>
                 <br>
                 <div class="form-row m-b-55">
-                                                <div class="value">
-                                                        <div class="row row-refine">
-                                                                <div class="col-3"></div>
-                                                                <div class="col-6">
-                                                                        <div class="input-group-desc">
-                                                                                <textarea name="opis">{{ $room->opis }}</textarea>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                                                </div>
-                                        </div>
+                    <div class="value">
+                        <div class="row row-refine">
+                            <div class="col-3"></div>
+                            <div class="col-6">
+                                <div class="input-group-desc">
+                                    <textarea name="opis">{{ $room->opis }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </div>
     <div class="card-footer text-muted">
         <input class="btn btn-primary" type="submit" name="submit" value="Sacuvaj"><br><br>
@@ -82,6 +81,6 @@
 <!-- END NAVBAR -->
 <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script>
-        CKEDITOR.replace('opis');
+    CKEDITOR.replace('opis');
 </script>
 @endsection
