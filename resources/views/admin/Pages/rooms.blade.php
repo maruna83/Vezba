@@ -58,18 +58,19 @@
                         <tbody>
                             @if($rooms)
                             @foreach($rooms as $room)
+                            {{$rb=$rb+1}}
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">{{ $rb }}</th>
                                 <td>{{$room->naziv}}</td>
                                 <td class="">
 
                                     <div class="row justify-content-center btn-group">
                                         <div class="d-inline p-2">
-                                            <a href="/editRoom/id/{{$room->id}}" class="nav-link text-center card-link">
+                                            <a href="/admin/previewRoom/id/{{$room->id}}" class="nav-link text-center card-link">
                                                 <span class="fas fa-edit" style="font-size: 22px;" aria-hidden="true"></span></a>
                                         </div>
                                         <div class="d-inline p-2">
-                                            <a href="/deleteRoom/id/{{$room->id}}" class="nav-link text-center card-link" }>
+                                            <a href="/admin/deleteRoom/id/{{$room->id}}" class="nav-link text-center card-link" }>
                                                 <span class="fas fa-trash" style="font-size: 22px;" aria-hidden="true"></span></a>
                                         </div>
                                     </div>

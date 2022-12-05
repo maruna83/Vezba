@@ -11,16 +11,16 @@ class roomController extends Controller
 {
   public function viewAllRooms(){
     
-    $rooms = rooms::all();
-    
-   return view ('admin.Pages.rooms',['rooms'=>$rooms]);
+    $rooms=rooms::where('delete', '=', 1)->get();
+
+   return view ('admin/Pages/rooms',['rooms'=>$rooms,'rb'=>0]);
   }
+
   public function viewInsertPage()
   {
-
-
     return view('admin.Pages.roomsInsert');
   }
+
   public function insertRooms(Request $request)
   {
     $messages=[
@@ -42,53 +42,54 @@ class roomController extends Controller
  
         $room->naziv = $request->input('naziv');
         $room->opis = $request->input('opis');
+        $room->delete = '1';
         $room->save();
 
-    return redirect('admin.Pages.rooms')->with(['message'=>['type'=>'danger','text'=>'Prostorija je uspeno dodata.']]);
+    return redirect('admin/rooms')->with(['message'=>['type'=>'success','text'=>'Prostorija je uspeno dodata.']]);
 
   }
-  public function previewRoom()
+
+  public function previewRoom($id, Request $request)
   {
-
-
-    return view('admin.Pages.roomsEdit');
+    $room = rooms::findOrFail($id);
+    
+    return view('/admin/Pages/roomsEdit',['room'=>$room]);
   }
+  
   public function editRoom($id, Request $request)
   {
  
       $messages=[
         'required'=>'Morate popuniti polje :attribute',
-        'numeric'=>'Polje :attribute mora biti numericka vrednost'
       ];
       
       $validator = Validator::make(
       $request->all(),
       [
-      'naziv_smera'=>'required',
-      'trajanje'=>'required|numeric',
-      'inicijali'=>'required',
-      
+      'naziv'=>'required',
+            
       ],$messages);
       
       if($validator->fails()){
-      return redirect('/viewEditPage')->withErrors($validator)
+      return redirect('/admin/Pages/roomsEdit')->withErrors($validator)
                                    ->withInput();
       }
       $room = rooms::findOrFail($id);
        
       $room->naziv = $request->input('naziv');
       $room->opis = $request->input('opis');
-      $room->save();
+      $room->update();
       
-      return redirect('admin.Pages.rooms')->with(['message'=>['type'=>'danger','text'=>'Prostorija je obrisana.']]);
+      return redirect('admin/rooms')->with(['message'=>['type'=>'success','text'=>'Prostorija je izmenjena.']]);
   }
   public function deleteRoom($id){
       
     $room = rooms::findOrFail($id);
-    $room->delete();
+    $room->delete = '0';
+    $room->update();
 
-    $rooms = rooms::all();
-  //  return redirect()->back()->with('status','Proizvod je izbrisan');
+    $rooms=rooms::where('delete', '=', 1)->get();
+  
     return redirect()->back()->with(['message'=>['type'=>'danger','text'=>'Prostorija je obrisana.']]);
     }
 }
