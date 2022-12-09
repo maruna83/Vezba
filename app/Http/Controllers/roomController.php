@@ -66,18 +66,17 @@ class roomController extends Controller
       $validator = Validator::make(
       $request->all(),
       [
-      'NAZIV'=>'required',
-            
+      'name'=>'required',
       ],$messages);
       
       if($validator->fails()){
-      return redirect('/admin/previewRoom/id/'.$room->id)->withErrors($validator)
+      return redirect('/admin/room/preview/'.$room->id)->withErrors($validator) 
                                    ->withInput();
       }
       
        
-      $room->naziv = $request->input('naziv');
-      $room->opis = $request->input('opis');
+      $room->name = $request->input('name');
+      $room->text = $request->input('text');
       $room->update();
       
       return redirect('admin/rooms')->with(['message'=>['type'=>'success','text'=>'Prostorija je izmenjena.']]);

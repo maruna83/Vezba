@@ -28,8 +28,8 @@
         </div>
         @endif
         @if (session('status'))
-    <h6 class="alert alert-success mt-2">{{ session('status') }}</h6>
-    @endif
+        <h6 class="alert alert-success mt-2">{{ session('status') }}</h6>
+        @endif
     </div>
     <div class="col-sm-6">
         <div class="card text-center">
@@ -37,8 +37,8 @@
                 <h3>Prostorije </h3>
             </div>
             @if (session('status'))
-    <h6 class="alert alert-success mt-2">{{ session('status') }}</h6>
-    @endif
+            <h6 class="alert alert-success mt-2">{{ session('status') }}</h6>
+            @endif
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table text-center">
@@ -46,7 +46,7 @@
                             <span>Lista Prostorija</span>
                         </caption>
                         <caption style="text-align:right">
-                            <a href="/admin/insertRooms" class="btn btn-warning align-right"><span class="align-right">Dodaj novo</span></a>
+                            <a href="/admin/room/insert" class="btn btn-warning align-right"><span class="align-right">Dodaj novo</span></a>
                         </caption>
                         <thead>
                             <tr>
@@ -58,7 +58,7 @@
                         <tbody>
                             @if($rooms)
                             @foreach($rooms as $room)
-                            {{$rb=$rb+1}}
+                          <?php  $rb=$rb+1  ?>
                             <tr>
                                 <th scope="row">{{ $rb }}</th>
                                 <td>{{$room->naziv}}</td>
@@ -66,11 +66,11 @@
 
                                     <div class="row justify-content-center btn-group">
                                         <div class="d-inline p-2">
-                                            <a href="/admin/previewRoom/id/{{$room->id}}" class="nav-link text-center card-link">
+                                            <a href="/admin/room/preview/{{$room->id}}" class="nav-link text-center card-link">
                                                 <span class="fas fa-edit" style="font-size: 22px;" aria-hidden="true"></span></a>
                                         </div>
                                         <div class="d-inline p-2">
-                                            <a href="admin/deleteRoom/id/{{$room->id}}" class="nav-link text-center card-link" }>
+                                            <a href="admin/room/delete/{{$room->id}}" class="nav-link text-center card-link" }>
                                                 <span class="fas fa-trash" style="font-size: 22px;" aria-hidden="true"></span></a>
                                         </div>
                                     </div>

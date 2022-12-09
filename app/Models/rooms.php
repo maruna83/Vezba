@@ -9,7 +9,7 @@ class rooms extends Model
 {
     use HasFactory;
 
-    protected $table ='prostorije';
+    protected $table ='rooms';
 
     protected $primaryKey = 'id';
 

@@ -27,7 +27,7 @@
     </div>
 
     <div class="card-body">
-        <form action="/admin/editRoom/id/{{ $room->id }}" method="post">
+        <form action="/admin/room/edit/{{ $room->id }}" method="post">
             @csrf
             <form>
                 <div class="form-row m-b-55">
@@ -36,7 +36,7 @@
                             <div class="col-3"></div>
                             <div class="col-6">
                                 <div class="input-group-desc">
-                                    <input class="form-control text-center" type="text" name="naziv" placeholder="Naziv" value="{{ $room->naziv }}">
+                                    <input class="form-control text-center" type="text" name="name" placeholder="Naziv" value="{{ $room->naziv }}">
                                     <label class="label--desc">Naziv <span class="text-danger">* </span> <span class="text-danger">
                                             @if($errors->any())
                                             @foreach($errors->all() as $error)
@@ -58,7 +58,7 @@
                             <div class="col-3"></div>
                             <div class="col-6">
                                 <div class="input-group-desc">
-                                    <textarea name="opis">{{ $room->opis }}</textarea>
+                                    <textarea name="text">{{ $room->text }}</textarea>
                                 </div>
                             </div>
                         </div>

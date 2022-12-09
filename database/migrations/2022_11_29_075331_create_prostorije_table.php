@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prostorije', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('naziv');
-            $table->text('opis');
+            $table->string('name');
+            $table->text('text')->nullable()->change();
             $table->boolean('delete');
             $table->timestamps();
         });

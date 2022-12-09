@@ -32,10 +32,10 @@ Route::get('admin/contact','App\Http\Controllers\contactController@contact');
 Route::post('admin/editContact','App\Http\Controllers\contactController@editContact');
 
 Route::get('admin/rooms','App\Http\Controllers\roomController@viewAllRooms');
-Route::get('admin/insertRooms','App\Http\Controllers\roomController@viewInsertPage');
-Route::post('admin/saveRooms','App\Http\Controllers\roomController@insertRooms');
-Route::get('admin/previewRoom/id/{id}','App\Http\Controllers\roomController@previewRoom');
-Route::post('admin/editRoom/id/{id}','App\Http\Controllers\roomController@editRoom');
-Route::get('admin/deleteRoom/id/{id}','App\Http\Controllers\roomController@deleteRoom');
+Route::get('admin/room/insert','App\Http\Controllers\roomController@viewInsertPage');
+Route::post('admin/room/save','App\Http\Controllers\roomController@insertRooms');
+Route::get('admin/room/preview/{id}','App\Http\Controllers\roomController@previewRoom');
+Route::post('admin/room/edit/{id}','App\Http\Controllers\roomController@editRoom');
+Route::get('admin/room/delete/{id}','App\Http\Controllers\roomController@deleteRoom');
 
 Route::get('admin/category','App\Http\Controllers\categoryController@category');

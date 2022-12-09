@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kategorije', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('naziv');
-            $table->text('opis');
-            $table->string('slika');
+            $table->string('name');
+            $table->text('text')->nullable()->change();
+            $table->string('picture');
             $table->boolean('delete');
             $table->timestamps();
         });

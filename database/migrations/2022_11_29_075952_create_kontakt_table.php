@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kontakt', function (Blueprint $table) {
+        Schema::create('contact', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('naziv');
-            $table->string('adresa');
-            $table->string('mesto');
-            $table->string('fiksni');
-            $table->string('mobilni');
+            $table->string('name');
+            $table->string('street');
+            $table->string('city');
+            $table->string('phone');
+            $table->string('mobile');
             $table->string('email');
             $table->string('facebook');
             $table->string('instagram');

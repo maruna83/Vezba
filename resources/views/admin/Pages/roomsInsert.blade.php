@@ -36,7 +36,7 @@
 
 @endif
     <div class="card-body">
-        <form action="/admin/saveRooms" method="post">
+        <form action="{{asset('/admin/room/save')}}" method="post">
             @csrf
             <form>
                 <div class="form-row m-b-55">

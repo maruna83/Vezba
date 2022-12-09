@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('asortiman', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('prostorija');
-            $table->integer('kategorija');
-            $table->string('naziv');
-            $table->string('opis');
-            $table->integer('cena');
-            $table->string('slika');
+            $table->integer('room');
+            $table->integer('category');
+            $table->string('name');
+            $table->string('text')->nullable()->change();
+            $table->integer('price');
+            $table->string('picture');
             $table->boolean('delete');
             $table->timestamps();
         });
